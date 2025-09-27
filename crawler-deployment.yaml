@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: crawler
   name: synergychat-crawler
   labels:
     app: synergychat-crawler
@@ -29,8 +30,6 @@ spec:
           volumeMounts:
             - name: cache-volume
               mountPath: /cache
-            - name: synergychat-api-volume
-              mountPath: /persist
         - name: synergychat-crawler-2
           image: bootdotdev/synergychat-crawler:latest
           env:
@@ -52,8 +51,6 @@ spec:
           volumeMounts:
             - name: cache-volume
               mountPath: /cache
-            - name: synergychat-api-volume
-              mountPath: /persist
         - name: synergychat-crawler-3
           image: bootdotdev/synergychat-crawler:latest
           env:
@@ -75,8 +72,6 @@ spec:
           volumeMounts:
             - name: cache-volume
               mountPath: /cache
-            - name: synergychat-api-volume
-              mountPath: /persist
       
 
                 
